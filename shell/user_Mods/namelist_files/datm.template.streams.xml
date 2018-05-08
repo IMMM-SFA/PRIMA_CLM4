@@ -145,7 +145,7 @@
        mask    mask
    </variableNames>
    <filePath  RESOLUTION="NLDAS_RCPs" >
-       $DIN_LOC_ROOT/lnd/clm2_nldas2
+       $DIN_LOC_ROOT/lnd/datm7/nldas2_0224x0464
    </filePath>
    <fileNames RESOLUTION="NLDAS_RCPs">
        domain.lnd.nldas2_0224x0464_c110415.nc

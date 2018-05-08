@@ -3,7 +3,7 @@
 #
 export CESM_CASE_DIR=${BASE_DIR}/cases
 export CESM_SRC_DIR=${BASE_DIR}/clm4
-export INPUTDATA_DIR=${BASE_DIR}/inputdata
+export INPUTDATA_DIR=${BASE_DIR}/PRIMA_CLM4/inputdata
 export CESM_INPUTDATA_DIR=${INPUTDATA_DIR}/cesm_inputdata
 export CESM_COMPSET=NLDAS
 export RUNDIR=/pic/scratch/${USER}
@@ -25,7 +25,7 @@ rm -rf ${CESM_INPUTDATA_DIR}/atm/datm7/${CLM_USRDAT_NAME}/*.nc
 
 ls -l ${INPUTDATA_DIR}/user_inputdata/nldas2_forcing/clmforc_hist/*.nc | awk '{ print $9}' | awk -F'.' '{print $3}' | \
 awk -v INPUTDATA_DIR=${INPUTDATA_DIR} -v CLM_USRDAT_NAME=${CLM_USRDAT_NAME} \
-'{ system( "ln -s " INPUTDATA_DIR "/user_inputdata/nldas2_forcing/" DATM_FORCING_DIR "/clmforc.nldas." $1 ".nc " INPUTDATA_DIR"/cesm_inputdata/atm/datm7/" CLM_USRDAT_NAME "/" DATM_FORCING_DIR "/"$1".nc") }'
+'{ system( "ln -s " INPUTDATA_DIR "/user_inputdata/nldas2_forcing/" DATM_FORCING_DIR "/clmforc.nldas." $1 ".nc " INPUTDATA_DIR"/cesm_inputdata/atm/datm7/" CLM_USRDAT_NAME  "/clmforc.nldas."$1".nc") }'
 
 mkdir -p ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm
 rm -rf ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
@@ -106,7 +106,7 @@ taxmode = 'cycle', 'cycle'
 EOF
 
 #add user created source codes
-cp -a ${BASE_DIR}/im3scripts/shell/clm4_0/user_SourceMods_clm40/clm_varcon.F90 ${CESM_CASE_DIR}/${CESM_CASE_NAME}/SourceMods/src.clm/
+#cp -a ${BASE_DIR}/shell/user_Mods/clm4_0/clm_varcon.F90 ${CESM_CASE_DIR}/${CESM_CASE_NAME}/SourceMods/src.clm/
 
 # Build the case
 ./${CESM_CASE_NAME}.build
