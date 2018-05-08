@@ -1,1 +1,0 @@
-/pic/projects/landuq/huan565/sandbox/PRIMA_CLM4/inputdata/user_inputdata/nldas2_0224x0464/surfdata_nldas2_0224x0464_c131007.nc
