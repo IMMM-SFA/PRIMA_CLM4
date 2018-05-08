@@ -10,26 +10,23 @@ Repository for driving scripts and CLM4 NLDAS compsets (hist, RCP4.5, RCP8.5) de
 ## Tutorial to configure the PRIMA CLM4 HIST, RCP4.5, and RCP8.5 cases
 We provide detailed notes on running the CLM4 compsets on PIC Constance cluster.
 
-### Download code repository
+### Download script, data, and code repositories
+### Download script and data repository
+```
+setenv BASE_DIR <directory-of-choice>
+cd $BASE_DIR
+mkdir cases
+git clone git@github.com:IMMM-SFA/PRIMA_CLM4.git
+setenv CASE_DIR $BASE_DIR/cases
+setenv INPUTDATA_DIR $BASE_DIR/PRIMA_CLM4/inputdata
 
 #### CLM code
 ##### Please check http://www.cesm.ucar.edu/models/ccsm4.0/index.html for instructions for downloading a released CLM4 version
 ```
-setenv BASE_DIR <directory-of-choice>
 cd $BASE_DIR
 svn co https://svn-ccsm-release.cgd.ucar.edu/model_versions/ccsm4_0_rel03 clm4
 setenv CLM_SRC_DIR $BASE_DIR/clm4
 cd $CLM_SRC_DIR
-```
-
-### Download data repository
-```
-cd $BASE_DIR
-mkdir CESM_cases
-git clone git@github.com:IMMM-SFA/PRIMA_CLM4.git
-setenv CASE_DIR $BASE_DIR/cases
-cd $BASE_DIR/clm-pflotran-scripts
-setenv INPUTDATA_DIR ${PWD}/datasets
 ```
 
 #### Download data from NCAR repo, instruction for registration can be found at http://www.cesm.ucar.edu/models/cesm1.2

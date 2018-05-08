@@ -1,0 +1,674 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/xsl" href="namelist_defaults.xsl"?>
+
+<namelist_defaults>
+
+
+<!--
+Values to use by default for creation of CLM model namelists.
+The element names are the same as the corresponding namelist
+variables.  Values that depend on the model configuration use
+attributes to express the dependency.  The recognized attributes
+are: hgrid, defaults, mask, ic_ymd, ic_tod, sim_year and all configuration
+attributes from the config_cache.xml file (with keys converted to upper-case).
+-->
+
+<!-- Default time step -->
+<dtime>1800</dtime>
+
+<!-- CO2 volume mixing ratio -->
+<co2_ppmv sim_year="1000"      >379.0</co2_ppmv>
+<co2_ppmv sim_year="2000"      >379.0</co2_ppmv>
+<co2_ppmv sim_year="1850"      >284.7</co2_ppmv>
+
+<!-- CO2 type -->
+<co2_type>constant</co2_type>
+
+<!-- Default land/ocean mask type -->
+<mask hgrid="0.47x0.63"           >gx1v6</mask>
+<mask hgrid="0.9x1.25"            >gx1v6</mask>
+<mask hgrid="1.9x2.5"             >gx1v6</mask>
+<mask hgrid="2.65x3.33"           >USGS</mask>
+<mask hgrid="2.5x3.33"            >gx3v7</mask>
+<mask hgrid="4x5"                 >gx3v7</mask>
+<mask hgrid="10x15"               >USGS</mask>
+
+<mask hgrid="128x256"             >USGS</mask>
+<mask hgrid="64x128"              >USGS</mask>
+<mask hgrid="48x96"               >gx3v7</mask>
+<mask hgrid="32x64"               >USGS</mask>
+<mask hgrid="8x16"                >USGS</mask>
+
+<mask hgrid="94x192"              >T62</mask>
+
+<mask hgrid="5x5_amazon"          >navy</mask>
+<mask hgrid="1x1_tropicAtl"       >test</mask>
+<mask hgrid="1x1_camdenNJ"        >navy</mask>
+<mask hgrid="1x1_vancouverCAN"    >navy</mask>
+<mask hgrid="1x1_mexicocityMEX"   >navy</mask>
+<mask hgrid="1x1_asphaltjungleNJ" >navy</mask>
+<mask hgrid="1x1_brazil"          >navy</mask>
+<mask hgrid="1x1_urbanc_alpha"    >navy</mask>
+<mask                             >gx1v6</mask>
+<mask hgrid="NLDAS"               >USGS</mask>
+
+<!-- Default urban air conditioning/heating and wasteheat -->
+<urban_hac>ON_WASTEHEAT</urban_hac>
+
+<!-- Default urban traffic flux -->
+<urban_traffic>.false.</urban_traffic>
+
+<!-- ================================================================== -->
+<!-- The default filenames are given relative to the root directory
+     for the CLM2 data in the CCSM distribution -->
+
+<!-- Plant function types (relative to {csmdata}) -->
+<fpftcon           >lnd/clm2/pftdata/pft-physiology.c100226</fpftcon>
+<fpftcon bgc="cndv">lnd/clm2/pftdata/pft-physiology-cndv.c100226</fpftcon>
+
+<!-- Initial condition datasets (relative to {csmdata}) -->
+
+<!-- Initial files at 0.9x1.25 or 1.9x2.5 native resolution -->
+
+<finidat hgrid="1.9x2.5"   maxpft="numpft+1"  mask="gx1v6" bgc="none" ic_ymd="04010101" ic_tod="0" sim_year="1850">ccsm4_init/b40.1850.track1.2deg.003/year_401/b40.1850.track1.2deg.003.clm2.r.0401-01-01-00000.nc
+</finidat>
+
+<finidat hgrid="1.9x2.5"   maxpft="numpft+1"  mask="gx1v6" bgc="cn"   ic_ymd="04010101" ic_tod="0" sim_year="1850">ccsm4_init/b40.1850.track1.2deg.003/year_401/b40.1850.track1.2deg.003.clm2.r.0401-01-01-00000.nc
+</finidat>
+
+<finidat hgrid="1.9x2.5"   maxpft="numpft+1"  mask="gx1v6" bgc="cndv" ic_ymd="04010101" ic_tod="0" sim_year="1850">ccsm4_init/b40.1850.track1.2deg.003/year_401/b40.1850.track1.2deg.003.clm2.r.0401-01-01-00000.nc
+</finidat>
+
+<finidat hgrid="0.9x1.25"  maxpft="numpft+1"  mask="gx1v6" bgc="none" ic_ymd="08630101" ic_tod="0" sim_year="1850">ccsm4_init/b40.1850.track1.1deg.006/0863-01-01/b40.1850.track1.1deg.006.clm2.r.0863-01-01-00000.nc
+</finidat>
+
+<finidat hgrid="0.9x1.25"  maxpft="numpft+1"  mask="gx1v6" bgc="cn"   ic_ymd="08630101" ic_tod="0" sim_year="1850">ccsm4_init/b40.1850.track1.1deg.006/0863-01-01/b40.1850.track1.1deg.006.clm2.r.0863-01-01-00000.nc
+</finidat>
+
+<finidat hgrid="0.9x1.25"  maxpft="numpft+1"  mask="gx1v6" bgc="cndv" ic_ymd="08630101" ic_tod="0" sim_year="1850">ccsm4_init/b40.1850.track1.1deg.006/0863-01-01/b40.1850.track1.1deg.006.clm2.r.0863-01-01-00000.nc
+</finidat>
+
+<finidat hgrid="0.9x1.25"  maxpft="numpft+1"  mask="gx1v6" bgc="none" ic_ymd="20000101" ic_tod="0" sim_year="2000">lnd/clm2/initdata/clmi.BCN.2000-01-01_0.9x1.25_gx1v6_simyr2000_c100303.nc
+</finidat>
+
+<finidat hgrid="0.9x1.25"  maxpft="numpft+1"  mask="gx1v6" bgc="cn"   ic_ymd="20000101" ic_tod="0" sim_year="2000">lnd/clm2/initdata/clmi.BCN.2000-01-01_0.9x1.25_gx1v6_simyr2000_c100303.nc
+</finidat>
+
+<finidat hgrid="0.9x1.25"  maxpft="numpft+1"  mask="gx1v6" bgc="cndv" ic_ymd="20000101" ic_tod="0" sim_year="2000">lnd/clm2/initdata/clmi.BCN.2000-01-01_0.9x1.25_gx1v6_simyr2000_c100303.nc
+</finidat>
+
+<!-- Initial files interpolated from native resolution -->
+
+<finidat hgrid="1.9x2.5"   maxpft="numpft+1"  mask="gx1v6" bgc="none" ic_ymd="20000101" ic_tod="0" sim_year="2000">lnd/clm2/initdata/clmi.BCN.2000-01-01_1.9x2.5_gx1v6_simyr2000_c100309.nc
+</finidat>
+
+<finidat hgrid="1.9x2.5"   maxpft="numpft+1"  mask="gx1v6" bgc="cn"   ic_ymd="20000101" ic_tod="0" sim_year="2000">lnd/clm2/initdata/clmi.BCN.2000-01-01_1.9x2.5_gx1v6_simyr2000_c100309.nc
+</finidat>
+
+<finidat hgrid="1.9x2.5"   maxpft="numpft+1"  mask="gx1v6" bgc="cndv" ic_ymd="20000101" ic_tod="0" sim_year="2000">lnd/clm2/initdata/clmi.BCN.2000-01-01_1.9x2.5_gx1v6_simyr2000_c100309.nc
+</finidat>
+
+<finidat hgrid="10x15"     maxpft="numpft+1"  mask="USGS"  bgc="none" ic_ymd="18500101" ic_tod="0" sim_year="1850">lnd/clm2/initdata/clmi.BCN.1949-01-01_10x15_USGS_simyr1850_c100322.nc
+</finidat>
+
+<finidat hgrid="10x15"     maxpft="numpft+1"  mask="USGS"  bgc="cn"   ic_ymd="18500101" ic_tod="0" sim_year="1850">lnd/clm2/initdata/clmi.BCN.1949-01-01_10x15_USGS_simyr1850_c100322.nc
+</finidat>
+
+<finidat hgrid="10x15"     maxpft="numpft+1"  mask="USGS"  bgc="cndv" ic_ymd="18500101" ic_tod="0" sim_year="1850">lnd/clm2/initdata/clmi.BCN.1949-01-01_10x15_USGS_simyr1850_c100322.nc
+</finidat>
+
+<finidat hgrid="4x5"       maxpft="numpft+1"  mask="gx3v7  bgc="none" ic_ymd="18500101" ic_tod="0" sim_year="1850">lnd/clm2/initdata/clmi.BCN.1949-01-01_4x5_gx3v7_simyr1850_c100322.nc
+</finidat>
+
+<finidat hgrid="4x5"       maxpft="numpft+1"  mask="gx3v7  bgc="cn"   ic_ymd="18500101" ic_tod="0" sim_year="1850">lnd/clm2/initdata/clmi.BCN.1949-01-01_4x5_gx3v7_simyr1850_c100322.nc
+</finidat>
+
+<finidat hgrid="4x5"       maxpft="numpft+1"  mask="gx3v7  bgc="cndv" ic_ymd="18500101" ic_tod="0" sim_year="1850">lnd/clm2/initdata/clmi.BCN.1949-01-01_4x5_gx3v7_simyr1850_c100322.nc
+</finidat>
+
+<!-- Surface datasets (relative to {csmdata}) -->
+
+<!-- Surface datasets that belong with dynamic land-use change datasets (relative to {csmdata}) -->
+<fsurdat hgrid="10x15"         sim_year="1000" >lnd/clm2/surfdata/surfdata_10x15_USGS_070307.nc
+</fsurdat>
+<fsurdat hgrid="1x1_tropicAtl" sim_year="1000" >lnd/clm2/surfdata/surfdata_1x1_tropicAtl_urb3den_testyr1000_c090731.nc
+</fsurdat>
+
+<!-- for present day simulations - year 2000 -->
+<fsurdat hgrid="128x256"   sim_year="2000">
+lnd/clm2/surfdata/surfdata_128x256__c090213.nc</fsurdat>
+<fsurdat hgrid="64x128"    sim_year="2000">
+lnd/clm2/surfdata/surfdata_64x128_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="48x96"     sim_year="2000" >
+lnd/clm2/surfdata/surfdata_48x96_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="32x64"     sim_year="2000" >
+lnd/clm2/surfdata/surfdata_32x64_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="8x16"      sim_year="2000" >
+lnd/clm2/surfdata/surfdata_8x16_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="94x192"    sim_year="2000" >
+lnd/clm2/surfdata/surfdata_94x192_urb3den_simyr2000_c091016.nc</fsurdat>
+
+<fsurdat hgrid="0.23x0.31" sim_year="2000" >
+lnd/clm2/surfdata/surfdata_0.23x0.31_urb3den_simyr2000_c090828.nc</fsurdat>
+<fsurdat hgrid="0.47x0.63" sim_year="2000" >
+lnd/clm2/surfdata/surfdata_0.47x0.63_simyr2000_c091023.nc</fsurdat>
+<fsurdat hgrid="0.9x1.25"  sim_year="2000" >
+lnd/clm2/surfdata/surfdata_0.9x1.25_simyr2000_c091006.nc</fsurdat>
+<fsurdat hgrid="1.9x2.5"   sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1.9x2.5_simyr2000_c091005.nc</fsurdat>
+<fsurdat hgrid="2.5x3.33"  sim_year="2000" >
+lnd/clm2/surfdata/surfdata_2.5x3.33_simyr2000_c091023.nc</fsurdat>
+<fsurdat hgrid="2.65x3.33" sim_year="2000" >
+lnd/clm2/surfdata/surfdata_2.65x3.33_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="4x5"       sim_year="2000" >
+lnd/clm2/surfdata/surfdata_4x5_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="10x15"     sim_year="2000" >
+lnd/clm2/surfdata/surfdata_10x15_simyr2000_c090928.nc</fsurdat>
+ 
+<fsurdat hgrid="5x5_amazon"    sim_year="2000" >
+lnd/clm2/surfdata/surfdata_5x5_amazon_simyr2000_c091026.nc</fsurdat>
+<fsurdat hgrid="1x1_brazil"    sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_brazil_simyr2000_c090928.nc</fsurdat>
+<fsurdat hgrid="1x1_tropicAtl" sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_tropicAtl_simyr2000_c090923.nc</fsurdat>
+<fsurdat hgrid="1x1_camdenNJ"        >lnd/clm2/surfdata/surfdata_1x1pt_camdenNJ_navy_070824.nc</fsurdat>
+<fsurdat hgrid="1x1_vancouverCAN"    >lnd/clm2/surfdata/surfdata_1x1pt_vancouver_c070831.nc</fsurdat>
+<fsurdat hgrid="1x1_mexicocityMEX"   >lnd/clm2/surfdata/surfdata_1x1pt_mexicocity_c070831.nc</fsurdat>
+<fsurdat hgrid="1x1_asphaltjungleNJ" >lnd/clm2/surfdata/surfdata_1x1pt_camdenNJ_navy_070824.nc</fsurdat>
+<fsurdat hgrid="NLDAS"         sim_year="2000" >
+lnd/clm2/surfdata/surfdata_nldas2_0224x0464_c131007.nc</fsurdat>
+
+<!-- 100% Urban single-point datasets (only for sim-year=2000) -->
+<fsurdat hgrid="1x1_camdenNJ"        sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_camdenNJ_urb3den_simyr2000_c090505.nc</fsurdat>
+<fsurdat hgrid="1x1_vancouverCAN"    sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_vancouverCAN_urb3den_simyr2000_c090716.nc</fsurdat>
+<fsurdat hgrid="1x1_mexicocityMEX"   sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_mexicocityMEX_urb3den_simyr2000_c090720.nc</fsurdat>
+<fsurdat hgrid="1x1_urbanc_alpha"    sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_urbanc_alpha_urb3den_simyr2000_c090505.nc</fsurdat>
+<fsurdat hgrid="1x1_asphaltjungleNJ" sim_year="2000" >
+lnd/clm2/surfdata/surfdata_1x1_asphaltjungleNJ_urb3den_simyr2000_c090505.nc</fsurdat>
+
+<!-- for pre-industrial simulations - year 1850 -->
+<fsurdat hgrid="128x256"   sim_year="1850">
+lnd/clm2/surfdata/surfdata_128x256_urb3den_simyr1850_c090420.nc</fsurdat>
+<fsurdat hgrid="64x128"    sim_year="1850" >
+lnd/clm2/surfdata/surfdata_64x128_simyr1850_c090928.nc</fsurdat>
+<fsurdat hgrid="48x96"     sim_year="1850" >
+lnd/clm2/surfdata/surfdata_48x96_simyr1850_c090928.nc</fsurdat>
+<fsurdat hgrid="32x64"     sim_year="1850" >
+lnd/clm2/surfdata/surfdata_32x64_simyr1850_c090928.nc</fsurdat>
+<fsurdat hgrid="8x16"      sim_year="1850" >
+lnd/clm2/surfdata/surfdata_8x16_simyr1850_c090928.nc</fsurdat>
+
+<fsurdat hgrid="0.23x0.31" sim_year="1850" >
+lnd/clm2/surfdata/surfdata_0.23x0.31_urb3den_simyr1850_c090827.nc</fsurdat>
+<fsurdat hgrid="0.47x0.63" sim_year="1850" >
+lnd/clm2/surfdata/lnd/clm2/surfdata/surfdata_0.47x0.63_simyr1850_c100305.nc</fsurdat>
+<fsurdat hgrid="0.9x1.25"  sim_year="1850" >
+lnd/clm2/surfdata/surfdata_0.9x1.25_simyr1850_c091006.nc</fsurdat>
+<fsurdat hgrid="1.9x2.5"   sim_year="1850" >
+lnd/clm2/surfdata/surfdata_1.9x2.5_simyr1850_c091108.nc</fsurdat>
+<fsurdat hgrid="2.5x3.33"  sim_year="1850" >
+lnd/clm2/surfdata/surfdata_2.5x3.33_simyr1850_c091109.nc</fsurdat>
+<fsurdat hgrid="4x5"       sim_year="1850" >
+lnd/clm2/surfdata/surfdata_4x5_simyr1850_c090928.nc</fsurdat>
+<fsurdat hgrid="10x15"     sim_year="1850" >
+lnd/clm2/surfdata/surfdata_10x15_simyr1850_c100202.nc</fsurdat>
+
+<!-- Single point data for year 1850 -->
+<fsurdat hgrid="1x1_tropicAtl" sim_year="1850" >
+lnd/clm2/surfdata/surfdata_1x1_tropicAtl_simyr1850_c090923.nc</fsurdat>
+
+<!-- Dynamic PFT surface datasets (relative to {csmdata}) -->
+<fpftdyn hgrid="10x15"         sim_year_range="1000-1002" >lnd/clm2/surfdata/surfdata.pftdyn_10x15_USGS_070307.nc</fpftdyn>
+<fpftdyn hgrid="0.9x1.25"      sim_year_range="1850-2000" >lnd/clm2/surfdata/surfdata.pftdyn_0.9x1.25_simyr1850-2005_c091008.nc</fpftdyn>
+<fpftdyn hgrid="1.9x2.5"       sim_year_range="1850-2000" >lnd/clm2/surfdata/surfdata.pftdyn_1.9x2.5_simyr1850-2005_c091108.nc</fpftdyn>
+<fpftdyn hgrid="2.5x3.33"      sim_year_range="1850-2000" >lnd/clm2/surfdata/surfdata.pftdyn_2.5x3.33_simyr1850-2005_c091109.nc</fpftdyn>
+<fpftdyn hgrid="10x15"         sim_year_range="1850-2000" >lnd/clm2/surfdata/surfdata.pftdyn_10x15_simyr1850-2005_c100205.nc</fpftdyn>
+<fpftdyn hgrid="1x1_tropicAtl" sim_year_range="1850-2000" >lnd/clm2/surfdata/surfdata.pftdyn_1x1_tropicAtl_simyr1850-2005_c091026.nc</fpftdyn>
+<fpftdyn hgrid="1x1_tropicAtl" sim_year_range="1000-1004" >lnd/clm2/surfdata/surfdata.pftdyn_1x1pt_tropicAtl_testyr1000-1004_c090924.nc</fpftdyn>
+
+<!-- Dynamic PFT surface datasets for future scenarios(relative to {csmdata}) -->
+<fpftdyn hgrid="0.9x1.25"      rcp="8.5" sim_year_range="1850-2100" >lnd/clm2/surfdata/surfdata.pftdyn_0.9x1.25_rcp8.5_simyr1850-2100_c100319.nc</fpftdyn>
+<fpftdyn hgrid="0.9x1.25"      rcp="8.5" sim_year_range="2000-2100" >lnd/clm2/surfdata/surfdata.pftdyn_0.9x1.25_rcp8.5_simyr1850-2100_c100205.nc</fpftdyn>
+<fpftdyn hgrid="1.9x2.5"       rcp="8.5" sim_year_range="1850-2100" >lnd/clm2/surfdata/surfdata.pftdyn_1.9x2.5_rcp8.5_simyr1850-2100_c100203.nc</fpftdyn>
+<fpftdyn hgrid="10x15"         rcp="8.5" sim_year_range="1850-2100" >lnd/clm2/surfdata/surfdata.pftdyn_10x15_rcp8.5_simyr1850-2100_c100202.nc</fpftdyn>
+
+<!-- Grid datasets (relative to {csmdata}) -->
+<fatmgrid hgrid="128x256"   >lnd/clm2/griddata/griddata_128x256_060829.nc</fatmgrid>
+<fatmgrid hgrid="64x128"    >lnd/clm2/griddata/griddata_64x128_060829.nc</fatmgrid>
+<fatmgrid hgrid="48x96"     >lnd/clm2/griddata/griddata_48x96_060829.nc</fatmgrid>
+<fatmgrid hgrid="32x64"     >lnd/clm2/griddata/griddata_32x64_070212.nc</fatmgrid>
+<fatmgrid hgrid="8x16"      >lnd/clm2/griddata/griddata_8x16_070212.nc</fatmgrid>
+<fatmgrid hgrid="94x192"    >lnd/clm2/griddata/griddata_94x192_c081219.nc</fatmgrid>
+
+<fatmgrid hgrid="0.23x0.31" >lnd/clm2/griddata/griddata_0.23x0.31_c070927.nc</fatmgrid>
+<fatmgrid hgrid="0.47x0.63" >lnd/clm2/griddata/griddata_0.47x0.63_c070918.nc</fatmgrid>
+<fatmgrid hgrid="0.9x1.25"  >lnd/clm2/griddata/griddata_0.9x1.25_070212.nc</fatmgrid>
+<fatmgrid hgrid="1.9x2.5"   >lnd/clm2/griddata/griddata_1.9x2.5_060404.nc</fatmgrid>
+<fatmgrid hgrid="2.65x3.33" >lnd/clm2/griddata/griddata_2.65x3.33_c080208.nc</fatmgrid>
+<fatmgrid hgrid="2.5x3.33"  >lnd/clm2/griddata/griddata_2.5x3.33_c091012.nc</fatmgrid>
+<fatmgrid hgrid="4x5"       >lnd/clm2/griddata/griddata_4x5_060404.nc</fatmgrid>
+<fatmgrid hgrid="10x15"     >lnd/clm2/griddata/griddata_10x15_070212.nc</fatmgrid>
+
+<fatmgrid hgrid="5x5_amazon"         >lnd/clm2/griddata/griddata_5x5pt_amazon_c090715.nc</fatmgrid>
+<fatmgrid hgrid="1x1_brazil"         >lnd/clm2/griddata/griddata_1x1pt_brazil_c090715.nc</fatmgrid>
+<fatmgrid hgrid="1x1_tropicAtl"      >lnd/clm2/griddata/griddata_1x1pt_tropicAtl_test_070218.nc</fatmgrid>
+<fatmgrid hgrid="1x1_camdenNJ"       >lnd/clm2/griddata/griddata_1x1pt_camdenNJ_navy_070824.nc</fatmgrid>
+<fatmgrid hgrid="1x1_vancouverCAN"   >lnd/clm2/griddata/griddata_1x1pt_vancouverCAN_c090715.nc</fatmgrid>
+<fatmgrid hgrid="1x1_mexicocityMEX"  >lnd/clm2/griddata/griddata_1x1pt_mexicocityMEX_c090715.nc</fatmgrid>
+<fatmgrid hgrid="1x1_asphaltjungleNJ">lnd/clm2/griddata/griddata_1x1pt_camdenNJ_navy_070824.nc</fatmgrid>
+<fatmgrid hgrid="NLDAS"              >lnd/clm2/griddata//griddata_nldas2_0224x0464_c110415.nc</fatmgrid>
+
+<!-- Land topo datasets (when running land at different resolution than atm coupling) (relative to {csmdata}) -->
+<flndtopo hgrid="128x256"   >lnd/clm2/griddata/topodata_128x256_060829.nc</flndtopo>
+<flndtopo hgrid="64x128"    >lnd/clm2/griddata/topodata_64x128_060829.nc</flndtopo>
+<flndtopo hgrid="48x96"     >lnd/clm2/griddata/topodata_48x96_USGS_070110.nc</flndtopo>
+<flndtopo hgrid="32x64"     >lnd/clm2/griddata/topodata_32x64_USGS_070110.nc</flndtopo>
+<flndtopo hgrid="8x16"      >lnd/clm2/griddata/topodata_8x16_USGS_070110.nc</flndtopo>
+
+<flndtopo hgrid="0.23x0.31" >lnd/clm2/griddata/topodata_0.23x0.31_USGS_c070927.nc</flndtopo>
+<flndtopo hgrid="0.47x0.63" >lnd/clm2/griddata/topodata_0.47x0.63_USGS_c070918.nc</flndtopo>
+<flndtopo hgrid="0.9x1.25"  >lnd/clm2/griddata/topodata_0.9x1.25_USGS_070110.nc</flndtopo>
+<flndtopo hgrid="1.9x2.5"   >lnd/clm2/griddata/topodata_1.9x2.5_USGS_061130.nc</flndtopo>
+<flndtopo hgrid="2.65x3.33" >lnd/clm2/griddata/topodata_2.65x3.33_USGS_c080208.nc</flndtopo>
+<flndtopo hgrid="2.5x3.33"  >lnd/clm2/griddata/topodata_2.5x3.33_USGS_c091012.nc</flndtopo>
+<flndtopo hgrid="4x5"       >lnd/clm2/griddata/topodata_4x5_USGS_070110.nc</flndtopo>
+<flndtopo hgrid="10x15"     >lnd/clm2/griddata/topodata_10x15_USGS_070110.nc</flndtopo>
+
+<!-- Atmosphere topo datasets (when running land at different resolution than atm coupling) (relative to {csmdata}) -->
+<fatmtopo hgrid="128x256"   >lnd/clm2/griddata/topodata_128x256_060829.nc</fatmtopo>
+<fatmtopo hgrid="64x128"    >lnd/clm2/griddata/topodata_64x128_060829.nc</fatmtopo>
+<fatmtopo hgrid="48x96"     >lnd/clm2/griddata/topodata_48x96_USGS_070110.nc</fatmtopo>
+<fatmtopo hgrid="32x64"     >lnd/clm2/griddata/topodata_32x64_USGS_070110.nc</fatmtopo>
+<fatmtopo hgrid="8x16"      >lnd/clm2/griddata/topodata_8x16_USGS_070110.nc</fatmtopo>
+
+<fatmtopo hgrid="0.23x0.31" >lnd/clm2/griddata/topodata_0.23x0.31_USGS_c070927.nc</fatmtopo>
+<fatmtopo hgrid="0.47x0.63" >lnd/clm2/griddata/topodata_0.47x0.63_USGS_c070918.nc</fatmtopo>
+<fatmtopo hgrid="0.9x1.25"  >lnd/clm2/griddata/topodata_0.9x1.25_USGS_070110.nc</fatmtopo>
+<fatmtopo hgrid="1.9x2.5"   >lnd/clm2/griddata/topodata_1.9x2.5_USGS_061130.nc</fatmtopo>
+<fatmtopo hgrid="2.65x3.33" >lnd/clm2/griddata/topodata_2.65x3.33_USGS_c080208.nc</fatmtopo>
+<fatmtopo hgrid="2.5x3.33"  >lnd/clm2/griddata/topodata_2.5x3.33_USGS_c091012.nc</fatmtopo>
+<fatmtopo hgrid="4x5"       >lnd/clm2/griddata/topodata_4x5_USGS_070110.nc</fatmtopo>
+<fatmtopo hgrid="10x15"     >lnd/clm2/griddata/topodata_10x15_USGS_070110.nc</fatmtopo>
+
+<!-- Fraction datasets (relative to {csmdata}) -->
+
+<fatmlndfrc hgrid="128x256" mask="USGS"  >lnd/clm2/griddata/fracdata_128x256_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="64x128"  mask="USGS"  >lnd/clm2/griddata/fracdata_64x128_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="48x96"   mask="USGS"  >lnd/clm2/griddata/fracdata_48x96_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="48x96"   mask="gx3v7" >lnd/clm2/griddata/fracdata_48x96_gx3v7_c090915.nc</fatmlndfrc>
+<fatmlndfrc hgrid="32x64"   mask="USGS"  >lnd/clm2/griddata/fracdata_32x64_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="8x16"    mask="USGS"  >lnd/clm2/griddata/fracdata_8x16_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="94x192"  mask="T62"   >lnd/clm2/griddata/fracdata_94x192_T62_c081219.nc</fatmlndfrc>
+
+<fatmlndfrc hgrid="0.23x0.31" mask="USGS"   >lnd/clm2/griddata/fracdata_0.23x0.31_USGS_c070927.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.23x0.31" mask="tx0.1v2">lnd/clm2/griddata/fracdata_0.23x0.31_tx0.1v2_c070928.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.47x0.63" mask="USGS"   >lnd/clm2/griddata/fracdata_0.47x0.63_USGS_c070918.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.47x0.63" mask="gx1v6"  >lnd/clm2/griddata/fracdata_0.47x0.63_gx1v6_c090408.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.47x0.63" mask="tx0.1v2">lnd/clm2/griddata/fracdata_0.47x0.63_tx0.1v2_c070928.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.9x1.25"  mask="USGS"   >lnd/clm2/griddata/fracdata_0.9x1.25_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.9x1.25"  mask="gx1v6"  >lnd/clm2/griddata/fracdata_0.9x1.25_gx1v6_c090317.nc</fatmlndfrc>
+<fatmlndfrc hgrid="0.9x1.25"  mask="tx0.1v2">lnd/clm2/griddata/fracdata_0.9x1.25_tx0.1v2_c070928.nc</fatmlndfrc>
+
+<fatmlndfrc hgrid="1.9x2.5"   mask="USGS"   >lnd/clm2/griddata/fracdata_1.9x2.5_USGS_061130.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1.9x2.5"   mask="gx1v6"  >lnd/clm2/griddata/fracdata_1.9x2.5_gx1v6_c090206.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1.9x2.5"   mask="tx1v1"  >lnd/clm2/griddata/fracdata_1.9x2.5_tx1v1_c090714.nc</fatmlndfrc>
+<fatmlndfrc hgrid="2.65x3.33" mask="USGS"   >lnd/clm2/griddata/fracdata_2.65x3.33_USGS_c080208.nc</fatmlndfrc>
+<fatmlndfrc hgrid="2.5x3.33"  mask="gx3v7"  >lnd/clm2/griddata/fracdata_2.5x3.33_gx3v7_c100120.nc</fatmlndfrc>
+<fatmlndfrc hgrid="4x5"       mask="USGS"   >lnd/clm2/griddata/fracdata_4x5_USGS_070110.nc</fatmlndfrc>
+<fatmlndfrc hgrid="4x5"       mask="gx3v7"  >lnd/clm2/griddata/fracdata_4x5_gx3v7_c091231.nc</fatmlndfrc>
+<fatmlndfrc hgrid="10x15"     mask="USGS"   >lnd/clm2/griddata/fracdata_10x15_USGS_070110.nc</fatmlndfrc>
+
+<fatmlndfrc hgrid="5x5_amazon"          mask="navy">lnd/clm2/griddata/fracdata_5x5pt_amazon_navy_c090715.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1x1_brazil"          mask="navy">lnd/clm2/griddata/fracdata_1x1pt_brazil_navy_c090715.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1x1_tropicAtl"       mask="test">lnd/clm2/griddata/fracdata_1x1pt_tropicAtl_test_070218.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1x1_camdenNJ"        mask="navy">lnd/clm2/griddata/fracdata_1x1pt_camdenNJ_navy_070824.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1x1_mexicocityMEX"   mask="navy">lnd/clm2/griddata/fracdata_1x1pt_mexicocityMEX_navy_c090715.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1x1_vancouverCAN"    mask="navy">lnd/clm2/griddata/fracdata_1x1pt_vancouverCAN_navy_c090715.nc</fatmlndfrc>
+<fatmlndfrc hgrid="1x1_asphaltjungleNJ" mask="navy">lnd/clm2/griddata/fracdata_1x1pt_camdenNJ_navy_070824.nc</fatmlndfrc>
+<fatmlndfrc hgrid="NLDAS"               mask="USGS">lnd/clm2/griddata/fracdata_nldas2_0224x0464_c110415.nc</fatmlndfrc>
+
+<!-- SNICAR (SNow, ICe, and Aerosol Radiative model) datasets -->
+<!--  ***********  Resolution independent:   ***********  -->
+<fsnowoptics >lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc</fsnowoptics>
+<fsnowaging  >lnd/clm2/snicardata/snicar_drdt_bst_fit_60_c070416.nc</fsnowaging>
+
+<!-- Aerosol deposition fluxes - if NOT coupled to CAM or NOT running CAM with dust and aerosols -->
+<!--  ***********  Resolution dependent:   ***********  -->
+<!-- Present day: 2000 -->
+<faerdep hgrid="0.23x0.31" sim_year="2000" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_2000_0.23x0.31_c090828.nc</faerdep>
+<faerdep hgrid="0.47x0.63" sim_year="2000" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_2000_0.47x0.63_c090828.nc</faerdep>
+<faerdep hgrid="0.9x1.25"  sim_year="2000" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_2000_0.9x1.25_c090828.nc</faerdep>
+<faerdep hgrid="1.9x2.5"   sim_year="2000" sim_year_range="constant" >lnd/clm2/snicardata/aerosoldep_monthly_2000_mean_1.9x2.5_c090421.nc</faerdep>
+<faerdep hgrid="2.5x3.33"  sim_year="2000" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_2000_2.5x3.33_c091020.nc</faerdep>
+<faerdep hgrid="10x15"     sim_year="2000" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_2000_10x15_c090828.nc</faerdep>
+
+<faerdep hgrid="5x5_amazon"          sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_5x5_amazon_c090716.nc</faerdep>
+<faerdep hgrid="1x1_vancouverCAN"    sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_vancouverCAN_c090716.nc</faerdep>
+<faerdep hgrid="1x1_mexicocityMEX"   sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_mexicocityMEX_c090716.nc</faerdep>
+<faerdep hgrid="1x1_camdenNJ"        sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_camdenNJ_c090716.nc</faerdep>
+<faerdep hgrid="1x1_brazil"          sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_brazil_c090716.nc</faerdep>
+<faerdep hgrid="1x1_asphaltjungleNJ" sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_asphaltjungleNJ_c090716.nc</faerdep>
+<faerdep hgrid="1x1_tropicAtl"       sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_tropicAtl_c090716.nc</faerdep>
+<faerdep hgrid="1x1_urbanc_alpha"    sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_urbanc_alpha_c090716.nc</faerdep>
+<faerdep hgrid="NLDAS"               sim_year="2000" >lnd/clm2/snicardata/aerosoldep_2000_mean_nldas2_c110420.nc</faerdep>
+
+<!-- Pre-industrial: 1850 -->
+<faerdep hgrid="10x15"     sim_year="1850" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_10x15_c090828.nc</faerdep>
+<faerdep hgrid="2.5x3.33"  sim_year="1850" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_2.5x3.33_c091027.nc</faerdep>
+<faerdep hgrid="1.9x2.5"   sim_year="1850" sim_year_range="constant" >lnd/clm2/snicardata/aerosoldep_monthly_1850_mean_1.9x2.5_c090421.nc</faerdep>
+<faerdep hgrid="0.9x1.25"  sim_year="1850" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_0.9x1.25_c090828.nc</faerdep>
+<faerdep hgrid="0.47x0.63" sim_year="1850" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_0.47x0.63_c090828.nc</faerdep>
+<faerdep hgrid="0.23x0.31" sim_year="1850" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_0.23x0.31_c090828.nc</faerdep>
+
+<faerdep hgrid="1x1_tropicAtl" sim_year="1850" sim_year_range="constant" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_1x1_tropicAtl_c091026.nc</faerdep>
+
+<!-- Transient 20th Century 1850-2000 datasets -->
+<faerdep hgrid="10x15"     sim_year_range="1850-2000" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1849-2006_10x15_c090830.nc</faerdep>
+<faerdep hgrid="2.5x3.33"  sim_year_range="1850-2000" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1849-2006_2.5x3.33_c091027.nc</faerdep>
+<faerdep hgrid="1.9x2.5"   sim_year_range="1850-2000" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1849-2006_1.9x2.5_c090803.nc</faerdep>
+<faerdep hgrid="0.9x1.25"  sim_year_range="1850-2000" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1849-2006_0.9x1.25_c090830.nc</faerdep>
+
+<faerdep hgrid="1x1_tropicAtl"  sim_year_range="1850-2000" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1849-2006_1x1_tropicAtl_c091026.nc</faerdep>
+
+<!-- Transient future scenarios 1850-2100 datasets -->
+<faerdep hgrid="10x15"          rcp="8.5" sim_year_range="1850-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_1849-2104_10x15_c100208.nc</faerdep>
+<faerdep hgrid="4x5"            rcp="8.5" sim_year_range="1850-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_1849-2104_4x5_c100208.nc</faerdep>
+<faerdep hgrid="2.5x3.33"       rcp="8.5" sim_year_range="1850-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_1849-2104_2.5x3.33_c100208.nc</faerdep>
+<faerdep hgrid="1.9x2.5"        rcp="8.5" sim_year_range="1850-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_1849-2104_1.9x2.5_c100201.nc</faerdep>
+<faerdep hgrid="0.9x1.25"       rcp="8.5" sim_year_range="1850-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_1849-2104_0.9x1.25_c100208.nc</faerdep>
+<faerdep hgrid="1.9x2.5"        rcp="8.5" sim_year_range="2000-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_2000-2104_1.9x2.5_c100209.nc</faerdep>
+<faerdep hgrid="0.9x1.25"       rcp="8.5" sim_year_range="2000-2100" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_rcp8.5_monthly_2000-2104_0.9x1.25_c100209.nc</faerdep>
+
+<!-- Old 1990s data -->
+<faerdep hgrid="2.65x3.33"                   >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_2.65x3.33_c080709.nc</faerdep>
+<faerdep hgrid="4x5"                         >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_4x5_c080410.nc</faerdep>
+
+<faerdep hgrid="128x256"                     >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_128x256_c081201.nc</faerdep>
+<faerdep hgrid="64x128"                      >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_64x128_c080410.nc</faerdep>
+<faerdep hgrid="48x96"                       >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_48x96_c080410.nc</faerdep>
+<faerdep hgrid="32x64"                       >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_32x64_c081201.nc</faerdep>
+<faerdep hgrid="8x16"                        >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_8x16_c081201.nc</faerdep>
+<faerdep hgrid="94x192"                      >lnd/clm2/snicardata/aerosoldep_monthly_1990s_mean_94x192_c081219.nc</faerdep>
+
+<!-- Test simulation-years: 1000 use files for present day -->
+<faerdep hgrid="1x1_tropicAtl" sim_year="1000" >lnd/clm2/snicardata/aerosoldep_2000_mean_1x1_tropicAtl_c090716.nc</faerdep>
+<faerdep hgrid="10x15"         sim_year="1000" >atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_2000_10x15_c090828.nc</faerdep>
+
+<!--CN Nitrogen deposition dataset for a fixed year (relative to {csmdata}) -->
+
+<!-- Future simulations from old AR4 scenarios -->
+<fndepdat hgrid="4x5"       bgc="cn"   sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_4x5_c090114.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_1.9x2.5_c070118.nc</fndepdat>
+<fndepdat hgrid="0.47x0.63" bgc="cn"   sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_0.47x0.63_c071213.nc</fndepdat>
+
+<fndepdat hgrid="64x128"    bgc="cn"   sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_64x128_c071221.nc</fndepdat>
+<fndepdat hgrid="48x96"     bgc="cn"   sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_48x96_c060414.nc</fndepdat>
+
+<!-- Future simulations from old AR4 scenarios (for CNDV) -->
+<fndepdat hgrid="4x5"       bgc="cndv" sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_4x5_c090114.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_1.9x2.5_c070118.nc</fndepdat>
+<fndepdat hgrid="0.47x0.63" bgc="cndv" sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_0.47x0.63_c071213.nc</fndepdat>
+
+<fndepdat hgrid="64x128"    bgc="cndv" sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_64x128_c071221.nc</fndepdat>
+<fndepdat hgrid="48x96"     bgc="cndv" sim_year="2100" >lnd/clm2/ndepdata/ndep_clm_2100_48x96_c060414.nc</fndepdat>
+
+<!-- current year 2000 simulations -->
+<fndepdat hgrid="10x15"     bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_10x15_c091106.nc</fndepdat>
+<fndepdat hgrid="4x5"       bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_4x5_c091106.nc</fndepdat>
+<fndepdat hgrid="2.5x3.33"  bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_2.5x3.33_c091106.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1.9x2.5_c091106.nc</fndepdat>
+<fndepdat hgrid="0.9x1.25"  bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_0.9x1.25_c091106.nc</fndepdat>
+<fndepdat hgrid="0.47x0.63" bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_0.47x0.63_c091106.nc</fndepdat>
+<fndepdat hgrid="0.23x0.31" bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_0.23x0.31_c091106.nc</fndepdat>
+
+<!-- current year 2000 simulations (CNDV) -->
+<fndepdat hgrid="10x15"     bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_10x15_c091106.nc</fndepdat>
+<fndepdat hgrid="4x5"       bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_4x5_c091106.nc</fndepdat>
+<fndepdat hgrid="2.5x3.33"  bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_2.5x3.33_c091106.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1.9x2.5_c091106.nc</fndepdat>
+<fndepdat hgrid="0.9x1.25"  bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_0.9x1.25_c091106.nc</fndepdat>
+<fndepdat hgrid="0.47x0.63" bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_0.47x0.63_c091106.nc</fndepdat>
+<fndepdat hgrid="0.23x0.31" bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_0.23x0.31_c091106.nc</fndepdat>
+
+<!-- current year 2000 simulations for single points -->
+<fndepdat hgrid="1x1_brazil"          bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_brazil_c091106.nc</fndepdat>
+<fndepdat hgrid="5x5_amazon"          bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_5x5_amazon_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_urbanc_alpha"    bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_urbanc_alpha_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_vancouverCAN"    bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_vancouverCAN_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_mexicocityMEX"   bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_mexicocityMEX_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_camdenNJ"        bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_camdenNJ_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_asphaltjungleNJ" bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_asphaltjungleNJ_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_tropicAtl"       bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_tropicAtl_c091106.nc</fndepdat>
+<fndepdat hgrid="NLDAS"               bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_nldas2_c110420.nc</fndepdat>
+
+<!-- current year 2000 simulations for single points (CNDV) -->
+<fndepdat hgrid="1x1_brazil"          bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_brazil_c091106.nc</fndepdat>
+<fndepdat hgrid="5x5_amazon"          bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_5x5_amazon_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_urbanc_alpha"    bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_urbanc_alpha_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_vancouverCAN"    bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_vancouverCAN_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_mexicocityMEX"   bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_mexicocityMEX_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_camdenNJ"        bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_camdenNJ_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_asphaltjungleNJ" bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_asphaltjungleNJ_c091106.nc</fndepdat>
+<fndepdat hgrid="1x1_tropicAtl"       bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_1x1_tropicAtl_c091106.nc</fndepdat>
+<fndepdat hgrid="NLDAS"               bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_simyr2000_nldas2_c110420.nc</fndepdat>
+
+<!-- current year 2000 simulations based on old AR4 scenarios -->
+<fndepdat hgrid="64x128"    bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_2000_64x128_c071221.nc</fndepdat>
+<fndepdat hgrid="48x96"     bgc="cn"   sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_2000_48x96_c060414.nc</fndepdat>
+
+<!-- current year 2000 simulations based on old AR4 scenarios (CNDV) -->
+<fndepdat hgrid="64x128"    bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_2000_64x128_c071221.nc</fndepdat>
+<fndepdat hgrid="48x96"     bgc="cndv" sim_year="2000" >lnd/clm2/ndepdata/ndep_clm_2000_48x96_c060414.nc</fndepdat>
+
+<!-- year 1850 pre-industrial simulations -->
+<fndepdat hgrid="10x15"     bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_10x15_c091106.nc</fndepdat>
+<fndepdat hgrid="4x5"       bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_4x5_c091106.nc</fndepdat>
+<fndepdat hgrid="2.5x3.33"  bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_2.5x3.33_c091106.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_1.9x2.5_c091106.nc</fndepdat>
+<fndepdat hgrid="0.9x1.25"  bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_0.9x1.25_c091106.nc</fndepdat>
+<fndepdat hgrid="0.47x0.63" bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_0.47x0.63_c091106.nc</fndepdat>
+<fndepdat hgrid="0.23x0.31" bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_0.23x0.31_c091106.nc</fndepdat>
+
+<!-- year 1850 pre-industrial simulations (CNDV) -->
+<fndepdat hgrid="10x15"     bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_10x15_c091106.nc</fndepdat>
+<fndepdat hgrid="4x5"       bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_4x5_c091106.nc</fndepdat>
+<fndepdat hgrid="2.5x3.33"  bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_2.5x3.33_c091106.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_1.9x2.5_c091106.nc</fndepdat>
+<fndepdat hgrid="0.9x1.25"  bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_0.9x1.25_c091106.nc</fndepdat>
+<fndepdat hgrid="0.47x0.63" bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_0.47x0.63_c091106.nc</fndepdat>
+<fndepdat hgrid="0.23x0.31" bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_simyr1850_0.23x0.31_c091106.nc</fndepdat>
+
+<!-- year 1890 pre-industrial simulations based on old AR4 scenarios -->
+<fndepdat hgrid="64x128"    bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_1890_64x128_c071221.nc</fndepdat>
+<fndepdat hgrid="48x96"     bgc="cn"   sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_1890_48x96_c060414.nc</fndepdat>
+
+<!-- year 1890 pre-industrial simulations based on old AR4 scenarios (CNDV) -->
+<fndepdat hgrid="64x128"    bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_1890_64x128_c071221.nc</fndepdat>
+<fndepdat hgrid="48x96"     bgc="cndv" sim_year="1850" >lnd/clm2/ndepdata/ndep_clm_1890_48x96_c060414.nc</fndepdat>
+
+<!--CN Nitrogen deposition dataset for a fixed historical decade for 1.9x2.5 resolution (relative to {csmdata}) -->
+<!-- These are ONLY used by the ../tools/ncl_scripts ncl script ndeplintInterp.ncl to create fndepdyn files -->
+<!-- The units are incorrect to be used by the model and the NOy and NHx terms need to be summed together -->
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1855" >lnd/clm2/ndepdata/ndep_clm_simyr1850-1859_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1865" >lnd/clm2/ndepdata/ndep_clm_simyr1860-1869_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1875" >lnd/clm2/ndepdata/ndep_clm_simyr1870-1879_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1885" >lnd/clm2/ndepdata/ndep_clm_simyr1880-1889_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1895" >lnd/clm2/ndepdata/ndep_clm_simyr1890-1899_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1905" >lnd/clm2/ndepdata/ndep_clm_simyr1900-1909_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1915" >lnd/clm2/ndepdata/ndep_clm_simyr1910-1919_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1925" >lnd/clm2/ndepdata/ndep_clm_simyr1920-1929_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1935" >lnd/clm2/ndepdata/ndep_clm_simyr1930-1939_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1945" >lnd/clm2/ndepdata/ndep_clm_simyr1940-1949_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1955" >lnd/clm2/ndepdata/ndep_clm_simyr1950-1959_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1965" >lnd/clm2/ndepdata/ndep_clm_simyr1960-1969_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1975" >lnd/clm2/ndepdata/ndep_clm_simyr1970-1979_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1985" >lnd/clm2/ndepdata/ndep_clm_simyr1980-1989_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="1995" >lnd/clm2/ndepdata/ndep_clm_simyr1990-1999_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2005" >lnd/clm2/ndepdata/ndep_clm_simyr2000-2009_1.9x2.5_c090730.nc</fndepdat>
+
+<!--CNDV Nitrogen deposition dataset for a fixed historical decade for 1.9x2.5 resolution (relative to {csmdata}) (CNDV) -->
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1855" >lnd/clm2/ndepdata/ndep_clm_simyr1850-1859_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1865" >lnd/clm2/ndepdata/ndep_clm_simyr1860-1869_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1875" >lnd/clm2/ndepdata/ndep_clm_simyr1870-1879_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1885" >lnd/clm2/ndepdata/ndep_clm_simyr1880-1889_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1895" >lnd/clm2/ndepdata/ndep_clm_simyr1890-1899_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1905" >lnd/clm2/ndepdata/ndep_clm_simyr1900-1909_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1915" >lnd/clm2/ndepdata/ndep_clm_simyr1910-1919_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1925" >lnd/clm2/ndepdata/ndep_clm_simyr1920-1929_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1935" >lnd/clm2/ndepdata/ndep_clm_simyr1930-1939_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1945" >lnd/clm2/ndepdata/ndep_clm_simyr1940-1949_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1955" >lnd/clm2/ndepdata/ndep_clm_simyr1950-1959_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1965" >lnd/clm2/ndepdata/ndep_clm_simyr1960-1969_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1975" >lnd/clm2/ndepdata/ndep_clm_simyr1970-1979_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1985" >lnd/clm2/ndepdata/ndep_clm_simyr1980-1989_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="1995" >lnd/clm2/ndepdata/ndep_clm_simyr1990-1999_1.9x2.5_c090730.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2005" >lnd/clm2/ndepdata/ndep_clm_simyr2000-2009_1.9x2.5_c090730.nc</fndepdat>
+
+<!--CN Nitrogen deposition dataset for a fixed future scenario decade for 1.9x2.5 resolution (relative to {csmdata}) -->
+<!-- These are ONLY used by the ../tools/ncl_scripts ncl script ndeplintInterp.ncl to create fndepdyn files -->
+<!-- The units are incorrect to be used by the model and the NOy and NHx terms need to be summed together -->
+
+<!-- RCP is representative concentration pathway and points to the radiative forcing at the peak or at 2100 -->
+
+<!-- RCP 8.5 - the MESSAGE scenario -->
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2005" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2000-2009_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2015" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2010-2019_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2025" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2020-2029_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2035" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2030-2039_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2045" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2040-2049_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2055" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2050-2059_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2065" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2060-2069_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2075" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2070-2079_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2085" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2080-2089_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2095" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2090-2099_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2105" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2100-2109_1.9x2.5_c100115.nc</fndepdat>
+
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2005" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2000-2009_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2015" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2010-2019_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2025" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2020-2029_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2035" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2030-2039_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2045" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2040-2049_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2055" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2050-2059_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2065" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2060-2069_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2075" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2070-2079_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2085" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2080-2089_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2095" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2090-2099_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2105" rcp="8.5">lnd/clm2/ndepdata/ndep_clm_rcp8.5_simyr2100-2109_1.9x2.5_c100115.nc</fndepdat>
+
+<!-- RCP 4.5 - the MINICAM scenario -->
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2005" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2000-2009_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2015" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2010-2019_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2025" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2020-2029_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2035" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2030-2039_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2045" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2040-2049_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2055" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2050-2059_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2065" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2060-2069_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2075" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2070-2079_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2085" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2080-2089_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2095" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2090-2099_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2105" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2100-2109_1.9x2.5_c100115.nc</fndepdat>
+
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2005" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2000-2009_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2015" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2010-2019_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2025" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2020-2029_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2035" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2030-2039_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2045" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2040-2049_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2055" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2050-2059_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2065" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2060-2069_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2075" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2070-2079_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2085" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2080-2089_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2095" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2090-2099_1.9x2.5_c100115.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2105" rcp="4.5">lnd/clm2/ndepdata/ndep_clm_rcp4.5_simyr2100-2109_1.9x2.5_c100115.nc</fndepdat>
+
+<!-- RCP 2.6 - the IMAGE scenario -->
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2005" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2000-2009_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2015" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2010-2019_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2025" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2020-2029_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2035" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2030-2039_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2045" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2040-2049_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2055" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2050-2059_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2065" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2060-2069_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2075" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2070-2079_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2085" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2080-2089_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2095" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2090-2099_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cn"   sim_year="2105" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2100-2109_1.9x2.5_c100127.nc</fndepdat>
+
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2005" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2000-2009_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2015" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2010-2019_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2025" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2020-2029_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2035" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2030-2039_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2045" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2040-2049_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2055" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2050-2059_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2065" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2060-2069_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2075" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2070-2079_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2085" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2080-2089_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2095" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2090-2099_1.9x2.5_c100127.nc</fndepdat>
+<fndepdat hgrid="1.9x2.5"   bgc="cndv" sim_year="2105" rcp="2.6">lnd/clm2/ndepdata/ndep_clm_rcp2.6_simyr2100-2109_1.9x2.5_c100127.nc</fndepdat>
+
+<!--CN Nitrogen deposition dataset for a series of years (relative to {csmdata}) -->
+
+<fndepdyn hgrid="0.9x1.25"  bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_0.9x1.25_c091106.nc</fndepdyn>
+<fndepdyn hgrid="1.9x2.5"   bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_1.9x2.5_c091106.nc</fndepdyn>
+<fndepdyn hgrid="2.5x3.33"  bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_2.5x3.33_c091106.nc</fndepdyn>
+<fndepdyn hgrid="10x15"     bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_10x15_c091106.nc</fndepdyn>
+<fndepdyn hgrid="4x5"       bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_4x5_c091106.nc</fndepdyn>
+
+<fndepdyn hgrid="1x1_tropicAtl"  bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_1x1_tropicAtl_c091106.nc</fndepdyn>
+
+<fndepdyn hgrid="0.9x1.25"  bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_0.9x1.25_c091106.nc</fndepdyn>
+<fndepdyn hgrid="1.9x2.5"   bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_1.9x2.5_c091106.nc</fndepdyn>
+<fndepdyn hgrid="2.5x3.33"  bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_2.5x3.33_c091106.nc</fndepdyn>
+<fndepdyn hgrid="10x15"     bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_10x15_c091106.nc</fndepdyn>
+<fndepdyn hgrid="4x5"       bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_4x5_c091106.nc</fndepdyn>
+
+<fndepdyn hgrid="1x1_tropicAtl"  bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_simyr1849-2006_1x1_tropicAtl_c091106.nc</fndepdyn>
+
+<!--CN Nitrogen deposition dataset for future scenarios (relative to {csmdata}) -->
+<fndepdyn hgrid="0.9x1.25"  bgc="cn"   sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_0.9x1.25_c100208.nc</fndepdyn>
+<fndepdyn hgrid="0.9x1.25"  bgc="cn"   sim_year_range="2000-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_0.9x1.25_c100208.nc</fndepdyn>
+<fndepdyn hgrid="1.9x2.5"   bgc="cn"   sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_1.9x2.5_c100201.nc</fndepdyn>
+<fndepdyn hgrid="2.5x3.33"  bgc="cn"   sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_2.5x3.33_c100208.nc</fndepdyn>
+<fndepdyn hgrid="4x5"       bgc="cn"   sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_4x5_c100208.nc</fndepdyn>
+<fndepdyn hgrid="10x15"     bgc="cn"   sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_10x15_c100208.nc</fndepdyn>
+
+<fndepdyn hgrid="1.9x2.5"   bgc="cn"   sim_year_range="1850-2100" rcp="4.5" >lnd/clm2/ndepdata/fndep_clm_rcp4.5_simyr1849-2106_1.9x2.5_c100201.nc</fndepdyn>
+
+<fndepdyn hgrid="1.9x2.5"   bgc="cn"   sim_year_range="1850-2100" rcp="2.6" >lnd/clm2/ndepdata/fndep_clm_rcp2.6_simyr1849-2106_1.9x2.5_c100208.nc</fndepdyn>
+
+<fndepdyn hgrid="0.9x1.25"  bgc="cndv" sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_0.9x1.25_c100208.nc</fndepdyn>
+<fndepdyn hgrid="0.9x1.25"  bgc="cndv" sim_year_range="2000-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_0.9x1.25_c100208.nc</fndepdyn>
+<fndepdyn hgrid="1.9x2.5"   bgc="cndv" sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_1.9x2.5_c100201.nc</fndepdyn>
+<fndepdyn hgrid="2.5x3.33"  bgc="cndv" sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_2.5x3.33_c100208.nc</fndepdyn>
+<fndepdyn hgrid="4x5"       bgc="cndv" sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_4x5_c100208.nc</fndepdyn>
+<fndepdyn hgrid="10x15"     bgc="cndv" sim_year_range="1850-2100" rcp="8.5" >lnd/clm2/ndepdata/fndep_clm_rcp8.5_simyr1849-2106_10x15_c100208.nc</fndepdyn>
+
+<fndepdyn hgrid="1.9x2.5"   bgc="cndv" sim_year_range="1850-2100" rcp="4.5" >lnd/clm2/ndepdata/fndep_clm_rcp4.5_simyr1849-2106_1.9x2.5_c100201.nc</fndepdyn>
+
+<fndepdyn hgrid="1.9x2.5"   bgc="cndv" sim_year_range="1850-2100" rcp="2.6" >lnd/clm2/ndepdata/fndep_clm_rcp2.6_simyr1849-2106_1.9x2.5_c100208.nc</fndepdyn>
+
+<!-- Old 1890-2100 datasets from AR4 -->
+<fndepdyn hgrid="48x96"     bgc="cn"   sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_1890-2100_48x96_c050608.nc</fndepdyn>
+<fndepdyn hgrid="48x96"     bgc="cndv" sim_year_range="1850-2000" >lnd/clm2/ndepdata/fndep_clm_1890-2100_48x96_c050608.nc</fndepdyn>
+
+<!-- River Transport Model 1/2 degree grid river routing file (relative to {csmdata}) -->
+<!-- New direction file with negative directions over ocean - frivinp_rtm rtm="on">lnd/clm2/rtmdata/rdirc.05.081203.txt</frivinp_rtm> -->
+<frivinp_rtm rtm="on">lnd/clm2/rtmdata/rdirc.05.061026</frivinp_rtm>
+
+<hist_crtinic >NONE</hist_crtinic>
+
+<!-- mksrf_fvegtyp -->
+<mksrf_fvegtyp hgrid="1x1_tropicAtl" sim_year="1000">lnd/clm2/rawdata/pftdyn.testing.testyr1000-1004/mksrf_pft_1x1_tropicAtl_testyr1000_c090722.nc</mksrf_fvegtyp>
+<mksrf_fvegtyp hgrid="1x1_tropicAtl" sim_year="1001">lnd/clm2/rawdata/pftdyn.testing.testyr1000-1004/mksrf_pft_1x1_tropicAtl_testyr1001_c090722.nc</mksrf_fvegtyp>
+<mksrf_fvegtyp hgrid="1x1_tropicAtl" sim_year="1002">lnd/clm2/rawdata/pftdyn.testing.testyr1000-1004/mksrf_pft_1x1_tropicAtl_testyr1002_c090722.nc</mksrf_fvegtyp>
+<mksrf_fvegtyp hgrid="1x1_tropicAtl" sim_year="1003">lnd/clm2/rawdata/pftdyn.testing.testyr1000-1004/mksrf_pft_1x1_tropicAtl_testyr1003_c090722.nc</mksrf_fvegtyp>
+<mksrf_fvegtyp hgrid="1x1_tropicAtl" sim_year="1004">lnd/clm2/rawdata/pftdyn.testing.testyr1000-1004/mksrf_pft_1x1_tropicAtl_testyr1004_c090722.nc</mksrf_fvegtyp>
+
+<!-- Historical Greenhouse gas concentrations from CAM -->
+<mkghg_bndtvghg >atm/cam/ggas/ghg_hist_1765-2005_c091218.nc</mkghg_bndtvghg>
+
+</namelist_defaults>

@@ -1,0 +1,30 @@
+#! /bin/csh -f
+
+#--- set modules
+source /etc/profile.d/modules.csh
+
+module purge
+unset LD_LIBRARY_PATH
+module load intel/15.0.1
+module load mvapich2/2.1a
+module load netcdf/4.3.2
+
+#--- set env variables for Macros if needed
+set netcdf = `which ncdump | sed -e 's:/bin/ncdump::'`
+setenv NETCDF_PATH $netcdf
+setenv INC_NETCDF ${NETCDF_PATH}/include
+setenv LIB_NETCDF ${NETCDF_PATH}/lib
+
+# confirm the choice
+set mpif90 = `which mpif90`
+
+set mpich = `echo $mpif90 | sed -e 's:/bin/mpif90::'`
+setenv MPICH_PATH $mpich
+setenv INC_MPI ${MPICH_PATH}/include
+setenv LIB_MPI ${MPICH_PATH}/lib
+
+#-------------------------------------------------------------------------------
+limit coredumpsize unlimited
+limit stacksize unlimited
+
+
