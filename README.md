@@ -1,5 +1,5 @@
 # PRIMA_CLM4
-CLM4 configuration and driving scripts under the PRIMA Initiative
+CLM4 configuration and driving scripts under the PRIMA Initiative (https://im3.pnnl.gov/platform-regional-integrated-modeling-and-analysis-prima)
 
 Repository for driving scripts and CLM4 NLDAS compsets (hist, RCP4.5, RCP8.5) developed under the PRIMA initiative, to be used on PNNL Institutional Computing facility, Constance
 
