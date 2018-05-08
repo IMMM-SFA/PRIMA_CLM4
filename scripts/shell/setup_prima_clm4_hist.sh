@@ -44,14 +44,14 @@ ln -s ${INPUTDATA_DIR}/user_inputdata/${CLM_USRDAT_NAME}/fracdata_${CLM_USRDAT_N
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Modify the Machine files to include Constance
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-cp -f ${BASE_DIR}/prima_clm4_scripts/shell/user_Mods/Machines/* ${BASE_DIR}/clm4/scripts/ccsm_utils/Machines
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/Machines/* ${BASE_DIR}/clm4/scripts/ccsm_utils/Machines
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Modify the Case.template and namelist files for the NLDAS compset
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-cp -f ${BASE_DIR}/prima_clm4_scripts/shell/user_Mods/Case.template/* ${BASE_DIR}/clm4/scripts/ccsm_utils/Case.template/
-cp -f ${BASE_DIR}/prima_clm4_scripts/shell/user_Mods/namelist_files/namelist_defaults_*.xml ${BASE_DIR}/clm4/models/lnd/clm/bld/namelist_files/
-cp -f ${BASE_DIR}/prima_clm4_scripts/shell/user_Mods/namelist_files/datm.template.streams.xml ${BASE_DIR}/clm4/models/atm/datm/bld/
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/Case.template/* ${BASE_DIR}/clm4/scripts/ccsm_utils/Case.template/
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/namelist_defaults_*.xml ${BASE_DIR}/clm4/models/lnd/clm/bld/namelist_files/
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/datm.template.streams.xml ${BASE_DIR}/clm4/models/atm/datm/bld/
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Now do the CLM stuff
@@ -60,7 +60,7 @@ cp -f ${BASE_DIR}/prima_clm4_scripts/shell/user_Mods/namelist_files/datm.templat
 cd ${CESM_SRC_DIR}/scripts
 
 # Creating case with command :
-./create_newcase -case ${CESM_CASE_DIR}/${CESM_CASE_NAME} -res ${CESM_COMPSET} -compset ${CESM_COMPSET} -mach constance
+./create_newcase -case ${CESM_CASE_DIR}/${CESM_CASE_NAME} -res ${CESM_COMPSET} -compset ${CESM_COMPSET} -mach constance -skip_rundb
 
 # Configuring case :
 cd ${CESM_CASE_DIR}/${CESM_CASE_NAME}
@@ -100,16 +100,11 @@ hist_nhtfrq = 0, -3
 hist_fincl2 = 'QOVER','QDRAI','QRUNOFF'
 EOF
 
-# Modify user_nl_datm
-cat >> user_nl_datm << EOF
-taxmode = 'cycle', 'cycle'
-EOF
-
 #add user created source codes
 #cp -a ${BASE_DIR}/shell/user_Mods/clm4_0/clm_varcon.F90 ${CESM_CASE_DIR}/${CESM_CASE_NAME}/SourceMods/src.clm/
 
 # Build the case
-./${CESM_CASE_NAME}.build
+#./${CESM_CASE_NAME}.build
 
 # Running case :
 # ./${CESM_CASE_NAME}.submit
