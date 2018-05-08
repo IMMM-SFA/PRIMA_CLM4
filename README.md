@@ -7,6 +7,53 @@ Repository for driving scripts and CLM4 NLDAS compsets (hist, RCP4.5, RCP8.5) de
 
 ---shell | ---inputdata
 
+## Tutorial to configure the PRIMA CLM4 HIST, RCP4.5, and RCP8.5 cases
+We provide detailed notes on running the CLM4 compsets on PIC Constance cluster.
+
+### Download code repository
+
+
+#### CLM code
+```
+cd $BASE_DIR
+git clone git@github.com:CLM-PFLOTRAN/clm-pflotran.git 
+setenv CLM_SRC_DIR $BASE_DIR/clm-pflotran
+cd $CLM_SRC_DIR
+```
+
+### Download data repository
+```
+cd $BASE_DIR
+mkdir cases
+git clone git@github.com:huangmy/clm-pflotran-scripts.git
+setenv CASE_DIR $BASE_DIR/cases
+cd $BASE_DIR/clm-pflotran-scripts
+setenv INPUTDATA_DIR ${PWD}/datasets
+```
+
+#### Download data from NCAR repo, instruction for registration can be found at http://www.cesm.ucar.edu/models/cesm1.2
+
+```
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_c20120313.nc  \
+${INPUTDATA_DIR}/cesm-inputdata/atm/cam/chem/trop_mozart/emis/megan21_emis_factors_c20120313.nc
+
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_mean_1.9x2.5_c090421.nc \
+${INPUTDATA_DIR}/cesm-inputdata/atm/cam/chem/trop_mozart_aero/aero/aerosoldep_monthly_1850_mean_1.9x2.5_c090421.nc
+
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/lai_streams/MODISPFTLAI_0.5x0.5_c140711.nc \
+${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/lai_streams/MODISPFTLAI_0.5x0.5_c140711.nc
+
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/paramdata/clm_params.c140423.nc \
+${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/paramdata/clm_params.c140423.nc
+
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_drdt_bst_fit_60_c070416.nc \
+${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/snicardata/snicar_drdt_bst_fit_60_c070416.nc
+
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc \
+${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
+
+```
+
 ## Who do I talk to?
     maoyi.huang at pnnl.gov
 
