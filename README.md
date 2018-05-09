@@ -5,7 +5,7 @@ Repository for driving scripts and CLM4 NLDAS compsets (hist, RCP4.5, RCP8.5) de
 
 ## Repository structure
 
----shell | ---inputdata
+---scripts/shell | ---inputdata
 
 ## Tutorial to configure the PRIMA CLM4 HIST, RCP4.5, and RCP8.5 cases
 We provide detailed notes on running the CLM4 compsets on PIC Constance cluster.
@@ -35,6 +35,10 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snic
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
+#### Download the NLDAS input datasets from https://dtn2.pnl.gov/data/im3/PRIMA/CLM (NOT NECESSARY if Constance is used as symbolic links exist)
+##### save data at https://dtn2.pnl.gov/data/im3/PRIMA/CLM/forcing to $INPUTDATA_DIR/user_inputdata/nldas2_forcing
+##### save data at https://dtn2.pnl.gov/data/im3/PRIMA/CLM/inputdata to $INPUTDATA_DIR/user_inputdata/nldas2_clm4
+
 #### Configure the PRIMA CLM4 historical simulation
 ```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
