@@ -40,7 +40,7 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmd
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_hist.sh
 ```
-#### Configure the PRIMA CLM4 historical simulation
+#### Configure the PRIMA CLM4 RCP4.5 simulation
 ```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp45.sh
