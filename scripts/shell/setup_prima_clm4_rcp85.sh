@@ -102,6 +102,8 @@ finidat     = '${fclmi}'
 hist_mfilt  = 1, 2920
 hist_nhtfrq = 0, -3
 hist_fincl2 = 'QOVER','QDRAI','QRUNOFF'
+outnc_large_files              = .true.
+rtm_nsteps             = 6
 /
 EOF
 
