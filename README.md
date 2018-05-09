@@ -36,9 +36,10 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snic
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
 #### Download the NLDAS input datasets from https://dtn2.pnl.gov/data/im3/PRIMA/CLM (NOT NECESSARY if Constance is used as symbolic links exist)
-##### save data at https://dtn2.pnl.gov/data/im3/PRIMA/CLM/forcing to $INPUTDATA_DIR/user_inputdata/nldas2_forcing
-##### save data at https://dtn2.pnl.gov/data/im3/PRIMA/CLM/inputdata to $INPUTDATA_DIR/user_inputdata/nldas2_clm4
-
+```
+ Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/forcing and save to $INPUTDATA_DIR/user_inputdata/nldas2_forcing
+ Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/inputdata and save to $INPUTDATA_DIR/user_inputdata/nldas2_clm4
+```
 #### Configure the PRIMA CLM4 historical simulation
 ```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
