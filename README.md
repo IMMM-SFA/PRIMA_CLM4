@@ -64,6 +64,7 @@ Hejazi MI, N Voisin, L Liu, LM Bramer, DC Fortin, JE Hathaway, M Huang, GP Kyle,
 
 ## Additional References:
 Ke Y, et al. (2012) Development of High Resolution Land Surface Parameters for the Community Land Model. Geoscientific Model Development 5(6):1341-1362
+
 Oleson KW, et al. (2010) Technical Description of version 4.0 of the Community Land Model (CLM). NCAR Technical Note NCAR/TN-478+STR (National Center for Atmospheric Research, Boulder, CO), 257 pp
 
 Wood A, Leung L, Sridhar V, Lettenmaier D (2004) Hydrologic implications of dynamical and statistical approaches to downscaling climate model outputs. Clim Change 62(1-3):189-216
