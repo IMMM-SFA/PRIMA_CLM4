@@ -110,6 +110,9 @@ EOF
 # Configuring the case
 ./configure -case
 
+#add user created source codes
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/clm4_0/ncdio.F90 ${CESM_CASE_DIR}/${CESM_CASE_NAME}/SourceMods/src.clm/ncdio.F90
+
 # Build the case
 ./${CESM_CASE_NAME}.constance.build
 

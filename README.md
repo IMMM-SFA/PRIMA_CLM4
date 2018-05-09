@@ -30,25 +30,28 @@ cd $CLM_SRC_DIR
 #### Download data from NCAR repo, instruction for registration can be found at http://www.cesm.ucar.edu/models/cesm1.2
 
 ```
-svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/pftdata/pft-physiology.c100226 ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/pftdata/pft-physiology.c100226
-svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_drdt_bst_fit_60_c070416.nc ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
-svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
-svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/rtmdata/rdirc.05.061026
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/pftdata/pft-physiology.c100226 ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/pftdata/pft-physiology.c100226
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_drdt_bst_fit_60_c070416.nc ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
+svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
 #### Configure the PRIMA CLM4 historical simulation
 ```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_hist.sh
+cd $CASE_DIR/clm4_nldas_hist
 ```
 #### Configure the PRIMA CLM4 RCP4.5 simulation
 ```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp45.sh
+cd $CASE_DIR/clm4_nldas_rcp45
 ```
 #### Configure the PRIMA CLM4 RCP8.5 simulation
 ```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp85.sh
+cd $CASE_DIR/clm4_nldas_rcp85
 ```
 ## Who do I talk to?
     maoyi.huang at pnnl.gov

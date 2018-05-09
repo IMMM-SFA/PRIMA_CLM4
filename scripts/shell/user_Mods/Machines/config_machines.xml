@@ -355,7 +355,7 @@
          INCROOT="$EXEROOT/lib/include"
          DIN_LOC_ROOT_CSMDATA="/pic/projects/prima/huan565/inputdata/ccsm"
          DIN_LOC_ROOT_CLMQIAN="/pic/projects/prima/huan565/inputdata/ccsm/atm/datm7/atm_forcing.datm7.Qian.T62.c080727"
-         DOUT_S_ROOT="/pic/projects/prima/$CCSMUSER/archive/$CASE"
+         DOUT_S_ROOT="/pic/scratch/$CCSMUSER/archive/$CASE"
          DOUT_L_HTAR="FALSE"
          DOUT_L_MSROOT="csm/$CASE"
          CCSM_BASELINE="/pic/scratch/tcraig/IRESM/ccsm_baselines"

@@ -5,9 +5,10 @@ source /etc/profile.d/modules.csh
 
 module purge
 unset LD_LIBRARY_PATH
+module load cmake/2.8.12
 module load intel/15.0.1
 module load mvapich2/2.1a
-module load netcdf/4.3.2
+module load netcdf/4.1.3
 
 #--- set env variables for Macros if needed
 set netcdf = `which ncdump | sed -e 's:/bin/ncdump::'`
@@ -24,7 +25,7 @@ setenv INC_MPI ${MPICH_PATH}/include
 setenv LIB_MPI ${MPICH_PATH}/lib
 
 #-------------------------------------------------------------------------------
-limit coredumpsize unlimited
+limit coredumpsize 1000000 
 limit stacksize unlimited
 
 
