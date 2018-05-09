@@ -36,17 +36,20 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snic
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
 #### Configure the PRIMA CLM4 historical simulation
+```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_hist.sh
-
+```
 #### Configure the PRIMA CLM4 historical simulation
+```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp45.sh
-
+```
 #### Configure the PRIMA CLM4 RCP8.5 simulation
+```
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp85.sh
-
+```
 ## Who do I talk to?
     maoyi.huang at pnnl.gov
 
