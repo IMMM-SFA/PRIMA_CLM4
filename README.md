@@ -20,8 +20,7 @@ git clone git@github.com:IMMM-SFA/PRIMA_CLM4.git
 setenv CASE_DIR $BASE_DIR/cases
 setenv INPUTDATA_DIR $BASE_DIR/PRIMA_CLM4/inputdata
 ```
-#### Download CLM code
-##### Please check http://www.cesm.ucar.edu/models/ccsm4.0/index.html for instructions to download a released CLM4 version
+#### Download CLM code, please check http://www.cesm.ucar.edu/models/ccsm4.0/index.html for instructions to download a released CLM4 version
 ```
 cd $BASE_DIR
 svn co https://svn-ccsm-release.cgd.ucar.edu/model_versions/ccsm4_0_rel03 clm4
@@ -36,6 +35,9 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snic
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
+#### Configure the PRIMA CLM4 historical run
+cd $BASE_DIR/PRIMA_CLM4/scripts/shell
+./setup_prima_clm4_hist.sh
 
 ## Who do I talk to?
     maoyi.huang at pnnl.gov
