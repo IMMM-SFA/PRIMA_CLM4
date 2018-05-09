@@ -1,6 +1,6 @@
 #! /bin/csh -f
 
-set mach = constance_int
+set mach = constance
 
 #################################################################################
 if ($PHASE == set_batch) then

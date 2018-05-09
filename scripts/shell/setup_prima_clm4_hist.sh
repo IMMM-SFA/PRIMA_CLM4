@@ -12,7 +12,6 @@ export CLM_USRDAT_NAME=nldas2_0224x0464
 export DOMAINFILE_CYYYYMMDD=c110415
 export SURFFILE_CYYYYMMDD=c131007
 export CESM_CASE_NAME=clm4_nldas_hist
-export DATM_FORCING_DIR=clmforc_hist
 export YEAR_START=1975
 export YEAR_END=2004
 
@@ -22,24 +21,26 @@ export YEAR_END=2004
 
 mkdir -p ${CESM_INPUTDATA_DIR}/atm/datm7/${CLM_USRDAT_NAME}
 rm -rf ${CESM_INPUTDATA_DIR}/atm/datm7/${CLM_USRDAT_NAME}/*.nc
-
 ls -l ${INPUTDATA_DIR}/user_inputdata/nldas2_forcing/clmforc_hist/*.nc | awk '{ print $9}' | awk -F'.' '{print $3}' | \
 awk -v INPUTDATA_DIR=${INPUTDATA_DIR} -v CLM_USRDAT_NAME=${CLM_USRDAT_NAME} \
-'{ system( "ln -s " INPUTDATA_DIR "/user_inputdata/nldas2_forcing/" DATM_FORCING_DIR "/clmforc.nldas." $1 ".nc " INPUTDATA_DIR"/cesm_inputdata/atm/datm7/" CLM_USRDAT_NAME  "/clmforc.nldas."$1".nc") }'
+'{ system( "ln -s " INPUTDATA_DIR "/user_inputdata/nldas2_forcing/clmforc_hist/clmforc.nldas." $1 ".nc " INPUTDATA_DIR"/cesm_inputdata/atm/datm7/"CLM_USRDAT_NAME"/clmforc.nldas." $1 ".nc") }'
 
 mkdir -p ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm
 rm -rf ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
-ln -s ${INPUTDATA_DIR}/user_inputdata/${CLM_USRDAT_NAME}/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
+ln -s ${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
+
+rm -rf ${CESM_INPUTDATA_DIR}/lnd/clm2/snicardata/aerosoldep_2000_mean_nldas2_c110420.nc
+ln -s ${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/aerosoldep_2000_mean_nldas2_c110420.nc ${CESM_INPUTDATA_DIR}/lnd/clm2/snicardata/aerosoldep_2000_mean_nldas2_c110420.nc
 
 mkdir -p ${CESM_INPUTDATA_DIR}/lnd/clm2/surfdata/
 rm -rf ${CESM_INPUTDATA_DIR}/lnd/clm2/surfdata/surfdata_${CLM_USRDAT_NAME}_${SURFFILE_CYYYYMMDD}.nc
-ln -s ${INPUTDATA_DIR}/user_inputdata/${CLM_USRDAT_NAME}/surfdata_${CLM_USRDAT_NAME}_${SURFFILE_CYYYYMMDD}.nc ${CESM_INPUTDATA_DIR}/lnd/clm2/surfdata/surfdata_${CLM_USRDAT_NAME}_${SURFFILE_CYYYYMMDD}.nc
+ln -s ${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/surfdata_${CLM_USRDAT_NAME}_${SURFFILE_CYYYYMMDD}.nc ${CESM_INPUTDATA_DIR}/lnd/clm2/surfdata/surfdata_${CLM_USRDAT_NAME}_${SURFFILE_CYYYYMMDD}.nc
 
 mkdir -p ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata
 rm -rf ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata/griddata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
 rm -rf ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata/fracdata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
-ln -s ${INPUTDATA_DIR}/user_inputdata/${CLM_USRDAT_NAME}/griddata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata/griddata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
-ln -s ${INPUTDATA_DIR}/user_inputdata/${CLM_USRDAT_NAME}/fracdata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc  ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata/fracdata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
+ln -s ${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/griddata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata/griddata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
+ln -s ${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/fracdata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc  ${CESM_INPUTDATA_DIR}/lnd/clm2/griddata/fracdata_${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Modify the Machine files to include Constance
@@ -51,7 +52,9 @@ cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/Machines/* ${BASE_DIR}/clm4
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/Case.template/* ${BASE_DIR}/clm4/scripts/ccsm_utils/Case.template/
 cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/namelist_defaults_*.xml ${BASE_DIR}/clm4/models/lnd/clm/bld/namelist_files/
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/namelist_definition.xml ${BASE_DIR}/clm4/models/lnd/clm/bld/namelist_files/
 cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/datm.template.streams.xml ${BASE_DIR}/clm4/models/atm/datm/bld/
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/datm.cpl7.template ${BASE_DIR}/clm4/models/atm/datm/bld/
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Now do the CLM stuff
@@ -60,7 +63,7 @@ cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/namelist_files/datm.templat
 cd ${CESM_SRC_DIR}/scripts
 
 # Creating case with command :
-./create_newcase -case ${CESM_CASE_DIR}/${CESM_CASE_NAME} -res ${CESM_COMPSET} -compset ${CESM_COMPSET} -mach constance -skip_rundb
+./create_newcase -case ${CESM_CASE_DIR}/${CESM_CASE_NAME} -res ${CESM_COMPSET} -compset ${CESM_COMPSET} -mach constance 
 
 # Configuring case :
 cd ${CESM_CASE_DIR}/${CESM_CASE_NAME}
@@ -81,31 +84,33 @@ cd ${CESM_CASE_DIR}/${CESM_CASE_NAME}
 ./xmlchange -file env_run.xml -id STOP_OPTION -val nyears
 ./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_START -val ${YEAR_START}
 ./xmlchange -file env_run.xml -id DATM_CLMNCEP_YR_ALIGN -val ${YEAR_START}
-./xmlchange -file env_run.xml -id DATM_MODE -val CLM1PT
+./xmlchange -file env_run.xml -id DATM_MODE -val CLMNLDAS
 ./xmlchange -file env_run.xml -id DIN_LOC_ROOT -val ${CESM_INPUTDATA_DIR}
-./xmlchange -file env_run.xml -id DIN_LOC_ROOT_CLMFORC -val "\$DIN_LOC_ROOT/atm/datm7"
+./xmlchange -file env_run.xml -id DIN_LOC_ROOT_CSMDATA -val ${CESM_INPUTDATA_DIR}
+./xmlchange -file env_run.xml -id DOUT_S -val TRUE
+./xmlchange -file env_run.xml -id DOUT_S_ROOT -val ${RUNDIR}/archive/${CESM_CASE_NAME}
 ./xmlchange -file env_run.xml -id RUNDIR -val ${RUNDIR}/${CESM_CASE_NAME}/run
-./xmlchange -file env_run.xml -id CLM_USRDAT_NAME -val ${CLM_USRDAT_NAME}
 
-./cesm_setup
+./configure -case
 
 # Modify run script
 
 # Modify user_nl_clm
 export fclmi=${INPUTDATA_DIR}/user_inputdata/${CLM_USRDAT_NAME}/clm_nldas2_hist.clm2.r.1980-01-01-00000.nc
 cat >> user_nl_clm << EOF
+&clm_inparm
 finidat     = '${fclmi}'
 hist_mfilt  = 1, 2920
 hist_nhtfrq = 0, -3
 hist_fincl2 = 'QOVER','QDRAI','QRUNOFF'
+/
 EOF
 
 #add user created source codes
-#cp -a ${BASE_DIR}/shell/user_Mods/clm4_0/clm_varcon.F90 ${CESM_CASE_DIR}/${CESM_CASE_NAME}/SourceMods/src.clm/
 
 # Build the case
-#./${CESM_CASE_NAME}.build
+./${CESM_CASE_NAME}.constance.build
 
 # Running case :
-# ./${CESM_CASE_NAME}.submit
+#sbatch ${CESM_CASE_NAME}.constance.run 
 

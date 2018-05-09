@@ -144,10 +144,10 @@
        area    area
        mask    mask
    </variableNames>
-   <filePath  RESOLUTION="NLDAS_RCPs" >
+   <filePath>
        $DIN_LOC_ROOT/lnd/datm7/nldas2_0224x0464
    </filePath>
-   <fileNames RESOLUTION="NLDAS_RCPs">
+   <fileNames>
        domain.lnd.nldas2_0224x0464_c110415.nc
    </fileNames>
 </domainInfo>
