@@ -1,6 +1,6 @@
 #!/bin/sh
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-# Driving script for the PRIMA CLM4 HIST (1975-2004) simulation
+# Driving script for the PRIMA CLM4 RCP8.5 (2005-2100) simulation
 # Maoyi Huang, 05/08/2018
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #
@@ -14,9 +14,9 @@ export RUNDIR=/pic/scratch/${USER}
 export CLM_USRDAT_NAME=nldas2_0224x0464
 export DOMAINFILE_CYYYYMMDD=c110415
 export SURFFILE_CYYYYMMDD=c131007
-export CESM_CASE_NAME=clm4_nldas_hist
-export YEAR_START=1975
-export YEAR_END=2004
+export CESM_CASE_NAME=clm4_nldas_rcp85
+export YEAR_START=2005
+export YEAR_END=2100
 
 # +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # Create soft links for CESM inputdata
@@ -24,9 +24,9 @@ export YEAR_END=2004
 
 mkdir -p ${CESM_INPUTDATA_DIR}/atm/datm7/${CLM_USRDAT_NAME}
 rm -rf ${CESM_INPUTDATA_DIR}/atm/datm7/${CLM_USRDAT_NAME}/*.nc
-ls -l ${INPUTDATA_DIR}/user_inputdata/nldas2_forcing/clmforc_hist/*.nc | awk '{ print $9}' | awk -F'.' '{print $3}' | \
+ls -l ${INPUTDATA_DIR}/user_inputdata/nldas2_forcing/clmforc_rcp85/*.nc | awk '{ print $9}' | awk -F'.' '{print $3}' | \
 awk -v INPUTDATA_DIR=${INPUTDATA_DIR} -v CLM_USRDAT_NAME=${CLM_USRDAT_NAME} \
-'{ system( "ln -s " INPUTDATA_DIR "/user_inputdata/nldas2_forcing/clmforc_hist/clmforc.nldas." $1 ".nc " INPUTDATA_DIR"/cesm_inputdata/atm/datm7/"CLM_USRDAT_NAME"/clmforc.nldas." $1 ".nc") }'
+'{ system( "ln -s " INPUTDATA_DIR "/user_inputdata/nldas2_forcing/clmforc_rcp85/clmforc.nldas." $1 ".nc " INPUTDATA_DIR"/cesm_inputdata/atm/datm7/"CLM_USRDAT_NAME"/clmforc.nldas." $1 ".nc") }'
 
 mkdir -p ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm
 rm -rf ${CESM_INPUTDATA_DIR}/atm/datm7/domain.clm/domain.lnd.${CLM_USRDAT_NAME}_${DOMAINFILE_CYYYYMMDD}.nc
@@ -94,7 +94,7 @@ cd ${CESM_CASE_DIR}/${CESM_CASE_NAME}
 ./xmlchange -file env_run.xml -id RUNDIR -val ${RUNDIR}/${CESM_CASE_NAME}/run
 
 # Modify user_nl_clm
-export fclmi=${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/clm_nldas2_hist.clm2.r.1980-01-01-00000.nc
+export fclmi=${INPUTDATA_DIR}/user_inputdata/nldas2_clm4/clm_nldas2_hist.clm2.r.2005-01-01-00000.nc
 cat >> user_nl_clm << EOF
 &clm_inparm
 dtime       = 1800
@@ -107,6 +107,9 @@ EOF
 
 # Configuring the case
 ./configure -case
+
+#add user created source codes
+cp -f ${BASE_DIR}/PRIMA_CLM4/scripts/shell/user_Mods/clm4_0/shr_stream_mod.F90 ${CESM_CASE_DIR}/${CESM_CASE_NAME}/SourceMods/src.share/shr_stream_mod.F90
 
 # Build the case
 ./${CESM_CASE_NAME}.constance.build

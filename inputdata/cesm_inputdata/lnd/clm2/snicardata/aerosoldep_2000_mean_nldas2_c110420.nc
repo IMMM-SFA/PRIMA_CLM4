@@ -1,0 +1,1 @@
+/pic/projects/landuq/huan565/sandbox/PRIMA_CLM4/inputdata/user_inputdata/nldas2_clm4/aerosoldep_2000_mean_nldas2_c110420.nc

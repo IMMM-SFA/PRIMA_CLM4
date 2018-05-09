@@ -35,14 +35,23 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snic
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm-inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
-#### Configure the PRIMA CLM4 historical run
+#### Configure the PRIMA CLM4 historical simulation
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_hist.sh
+
+#### Configure the PRIMA CLM4 historical simulation
+cd $BASE_DIR/PRIMA_CLM4/scripts/shell
+./setup_prima_clm4_rcp45.sh
+
+#### Configure the PRIMA CLM4 RCP8.5 simulation
+cd $BASE_DIR/PRIMA_CLM4/scripts/shell
+./setup_prima_clm4_rcp85.sh
 
 ## Who do I talk to?
     maoyi.huang at pnnl.gov
 
-## Description of the compsets and associated dataset (https://dtn2.pnl.gov/data/im3/PRIMA/CLM):
+## Description of the PRIMA CLM4 compsets 
+### Note: associated datasets can be found at https://dtn2.pnl.gov/data/im3/PRIMA/CLM
 The RESM simulations (Ke et al., 2012; Gao et al., 2014; Kraucunas et al. 2015) were postprocessed using bias correction to provide meteorological forcing for offline simulations using version 4 of the Community Land Model (CLM) (Oleson et al., 2010) at a resolution of one-eighth of a degree. The bias correction followed the method described by Wood et al. (2004). Data input to CLM, such as land cover, soil properties, and vegetation phenology, were retrieved from datasets developed by Ke et al. (2012) at a resolution of 0.05# and were aggregated to a resolution of one-eighth of a degree. CLM was spun up by recycling the meteorological forcing over the historical period (1975-2004) until all state variables, including soil moisture, soil temperature, and groundwater table depth, reached equilibrium.Then the model was forced by the two bias-corrected RESM downscaled climate scenarios, RCP4.5 and RCP8.5, to simulate terrestrial hydrological states and fluxes from 2005-2100. 
 
 ## Reference:
