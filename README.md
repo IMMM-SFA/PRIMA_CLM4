@@ -11,7 +11,7 @@ Repository for driving scripts and CLM4 NLDAS compsets (hist, RCP4.5, RCP8.5) de
 We provide detailed notes on running the CLM4 compsets on PIC Constance cluster.
 
 ### Download script, data, and code repositories
-### Download script and data repository
+#### Download script and data repository
 ```
 setenv BASE_DIR <directory-of-choice>
 cd $BASE_DIR
@@ -20,7 +20,7 @@ git clone git@github.com:IMMM-SFA/PRIMA_CLM4.git
 setenv CASE_DIR $BASE_DIR/cases
 setenv INPUTDATA_DIR $BASE_DIR/PRIMA_CLM4/inputdata
 ```
-#### CLM code
+#### Download CLM code
 ##### Please check http://www.cesm.ucar.edu/models/ccsm4.0/index.html for instructions to download a released CLM4 version
 ```
 cd $BASE_DIR
@@ -40,7 +40,7 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmd
 ## Who do I talk to?
     maoyi.huang at pnnl.gov
 
-##Description of the compsets and associated dataset (https://dtn2.pnl.gov/data/im3/PRIMA/CLM):
+## Description of the compsets and associated dataset (https://dtn2.pnl.gov/data/im3/PRIMA/CLM):
 The RESM simulations (Ke et al., 2012; Gao et al., 2014; Kraucunas et al. 2015) were postprocessed using bias correction to provide meteorological forcing for offline simulations using version 4 of the Community Land Model (CLM) (Oleson et al., 2010) at a resolution of one-eighth of a degree. The bias correction followed the method described by Wood et al. (2004). Data input to CLM, such as land cover, soil properties, and vegetation phenology, were retrieved from datasets developed by Ke et al. (2012) at a resolution of 0.05# and were aggregated to a resolution of one-eighth of a degree. CLM was spun up by recycling the meteorological forcing over the historical period (1975-2004) until all state variables, including soil moisture, soil temperature, and groundwater table depth, reached equilibrium.Then the model was forced by the two bias-corrected RESM downscaled climate scenarios, RCP4.5 and RCP8.5, to simulate terrestrial hydrological states and fluxes from 2005-2100. 
 
 ## Reference:
