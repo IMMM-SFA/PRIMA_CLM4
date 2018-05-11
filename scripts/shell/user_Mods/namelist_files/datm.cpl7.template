@@ -502,7 +502,7 @@ EOF
 #----- CLMNLDAS   mode ----------------------------------------------------------
 else if ($DATM_MODE == "CLMNLDAS" ) then
 
-if ( $GRID =~ NLDAS_RCPs )    set FILEPATH = \$DIN_LOC_ROOT/atm/datm7/nldas2_0224x0464
+if ( $GRID =~ NLDAS_RCPs )    set FILEPATH = \$DIN_LOC_ROOT/atm/datm7/nldas2_0224x0464/clmforc_$PERIOD
 
 cat >> $CASEBUILD/datm.buildnml.csh << EOF 
 

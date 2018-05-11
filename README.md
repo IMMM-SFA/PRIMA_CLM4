@@ -37,23 +37,28 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmd
 ```
 #### Download the NLDAS input datasets from https://dtn2.pnl.gov/data/im3/PRIMA/CLM (NOT NECESSARY if Constance is used as symbolic links exist)
 ```
- Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/forcing and save to $INPUTDATA_DIR/user_inputdata/nldas2_forcing
- Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/inputdata and save to $INPUTDATA_DIR/user_inputdata/nldas2_clm4
+ Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/forcing 
+               and save to $INPUTDATA_DIR/user_inputdata/nldas2_forcing
+ Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/inputdata 
+               and save to $INPUTDATA_DIR/user_inputdata/nldas2_clm4
 ```
 #### Configure the PRIMA CLM4 historical simulation
 ```
+setenv PERIOD hist
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_hist.sh
 cd $CASE_DIR/clm4_nldas_hist
 ```
 #### Configure the PRIMA CLM4 RCP4.5 simulation
 ```
+setenv PERIOD rcp45
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp45.sh
 cd $CASE_DIR/clm4_nldas_rcp45
 ```
 #### Configure the PRIMA CLM4 RCP8.5 simulation
 ```
+setenv PERIOD rcp85
 cd $BASE_DIR/PRIMA_CLM4/scripts/shell
 ./setup_prima_clm4_rcp85.sh
 cd $CASE_DIR/clm4_nldas_rcp85

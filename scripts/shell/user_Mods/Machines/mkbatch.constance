@@ -39,13 +39,13 @@ cat >! $CASEROOT/${CASE}.${mach}.run << EOF1
 ##SBATCH --ntasks=$ntasks
 #SBATCH --cpus-per-task=$maxthrds
 #SBATCH --exclusive
-#SBATCH -A regmodel
+#SBATCH -A prima
 ###SBATCH --mail-type=END
 ###SBATCH --mail-user=xyz@abc.com
 #SBATCH --output=slurm.out
 $MAILUSER
 
-limit coredumpsize unlimited
+limit coredumpsize 1000000
 limit stacksize unlimited
 setenv SLURM_NPROCS $ntasks
 setenv SLURM_CPUS_PER_TASK 1

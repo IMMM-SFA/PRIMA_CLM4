@@ -162,7 +162,7 @@
       FSDS     swdn
    </variableNames>
    <filePath>
-       %p
+       %p/clmforc_rcp45
    </filePath>
    <tInterpAlgo>
       linear
