@@ -35,7 +35,8 @@ svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snic
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/snicardata/snicar_optics_5bnd_c090915.nc
 svn export https://svn-ccsm-inputdata.cgd.ucar.edu/trunk/inputdata/lnd/clm2/rtmdata/rdirc.05.061026 ${INPUTDATA_DIR}/cesm_inputdata/lnd/clm2/rtmdata/rdirc.05.061026
 ```
-#### Download the NLDAS input datasets from https://dtn2.pnl.gov/data/im3/PRIMA/CLM (NOT NECESSARY if Constance is used as symbolic links exist)
+#### Download the NLDAS input datasets from https://dtn2.pnl.gov/data/im3/PRIMA/CLM 
+#### NOTE: NOT NECESSARY on Constance as symbolic links exist
 ```
  Download data from https://dtn2.pnl.gov/data/im3/PRIMA/CLM/forcing 
                and save to $INPUTDATA_DIR/user_inputdata/nldas2_forcing
