@@ -23,7 +23,7 @@ setenv INPUTDATA_DIR $BASE_DIR/PRIMA_CLM4/inputdata
 #### Download CLM code, please check http://www.cesm.ucar.edu/models/ccsm4.0/index.html for instructions to download a released CLM4 version
 ```
 cd $BASE_DIR
-svn co https://svn-ccsm-release.cgd.ucar.edu/model_versions/ccsm4_0_rel03 clm4
+svn co https://svn-ccsm-release.cgd.ucar.edu/model_versions/ccsm4_0 clm4
 setenv CLM_SRC_DIR $BASE_DIR/clm4
 cd $CLM_SRC_DIR
 ```
@@ -75,7 +75,7 @@ Kraucunas IP, LE Clarke, JA Dirks, JE Hathaway, MI Hejazi, KA Hibbard, M Huang, 
 Hejazi MI, N Voisin, L Liu, LM Bramer, DC Fortin, JE Hathaway, M Huang, GP Kyle, LYR Leung, H Li, Y Liu, PL Patel, TC Pulsipher, JS Rice, TK Tesfa, CR Vernon, and Y Zhou. 2015. "21st Century United States Emissions Mitigation Could Increase Water Stress more than the Climate Change it is Mitigating." Proceedings of the National Academy of Sciences of the United States of America 112(34):10635-10640.  doi:10.1073/pnas.1421675112
 
 ## Additional References:
-Ke Y, et al. (2012) Development of High Resolution Land Surface Parameters for the Community Land Model. Geoscientific Model Development 5(6):1341-1362
+Ke Y, et al. (2012) Development of High Resolution Land Surface Parameters for the Community Land Model. Geoscientific Model Development 5(6):1341-1362, https://doi.org/10.5194/gmd-5-1341-2012
 
 Oleson KW, et al. (2010) Technical Description of version 4.0 of the Community Land Model (CLM). NCAR Technical Note NCAR/TN-478+STR (National Center for Atmospheric Research, Boulder, CO), 257 pp
 
